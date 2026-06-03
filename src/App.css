@@ -72,18 +72,38 @@ body {
 }
 
 @media (max-width: 768px) {
+  /* Sidebar Drawer slide-out overlay */
+  .sidebar {
+    width: 280px !important;
+    position: fixed !important;
+    top: 64px;
+    bottom: 0;
+    left: -280px !important;
+    z-index: 1040;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: none;
+  }
+
   .sidebar-expanded {
-    width: 76px;
+    transform: translateX(280px);
+    box-shadow: 4px 0 12px rgba(60, 64, 67, 0.15) !important;
   }
-  .main-wrapper-expanded {
-    margin-left: 76px;
-  }
+
   .sidebar-collapsed {
-    width: 0px;
-    border-right: none !important;
+    transform: translateX(0);
   }
-  .main-wrapper-collapsed {
-    margin-left: 0px;
+
+  /* Force sidebar text to be visible in the mobile drawer */
+  .sidebar .sidebar-text {
+    opacity: 1 !important;
+    display: inline-block !important;
+    pointer-events: auto !important;
+  }
+
+  /* Main wrapper should never be squished or pushed on mobile */
+  .main-wrapper {
+    margin-left: 0 !important;
+    padding: 16px 12px !important;
   }
 }
 

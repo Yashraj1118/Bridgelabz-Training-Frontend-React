@@ -14,7 +14,7 @@ export default function App() {
   const [authView, setAuthView] = useState('login'); // login, register, verify-otp, forgot-password, reset-password-otp
   
   // Dashboard States
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(window.innerWidth <= 768);
   const [activeTab, setActiveTab] = useState('notes'); // notes, reminders, archive, trash, label-{id}
   const [searchQuery, setSearchQuery] = useState('');
   const [isGridView, setIsGridView] = useState(true);
@@ -193,7 +193,13 @@ export default function App() {
       <Sidebar 
         isCollapsed={isSidebarCollapsed}
         activeTab={activeTab}
-        setActiveTab={(tab) => { setActiveTab(tab); setSearchQuery(''); }}
+        setActiveTab={(tab) => { 
+          setActiveTab(tab); 
+          setSearchQuery(''); 
+          if (window.innerWidth <= 768) {
+            setIsSidebarCollapsed(true);
+          }
+        }}
         labels={labels}
         onEditLabelsClick={() => setShowLabelsModal(true)}
       />

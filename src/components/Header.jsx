@@ -13,10 +13,10 @@ export default function Header({
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top py-2 px-3 align-items-center">
-      <div className="container-fluid p-0 d-flex align-items-center justify-content-between">
+      <div className="container-fluid p-0 d-flex align-items-center justify-content-between flex-nowrap">
         
         {/* Left Section: Brand & Sidebar toggle */}
-        <div className="d-flex align-items-center gap-2">
+        <div className="d-flex align-items-center gap-2 flex-shrink-0">
           <button 
             className="btn btn-light rounded-circle p-2 d-flex align-items-center justify-content-center border-0 sidebar-toggle"
             type="button" 
@@ -38,21 +38,22 @@ export default function Header({
         </div>
 
         {/* Middle Section: Search Bar */}
-        <div className="flex-grow-1 mx-3 mx-md-5" style={{ maxWidth: '720px' }}>
-          <div className="input-group bg-light rounded-pill border-0 px-2 py-1 align-items-center">
-            <span className="input-group-text bg-transparent border-0 text-muted ps-3">
+        <div className="flex-grow-1 mx-1.5 mx-sm-3 mx-md-5" style={{ maxWidth: '720px' }}>
+          <div className="input-group bg-light rounded-pill border-0 px-2 py-0.5 py-sm-1 align-items-center">
+            <span className="input-group-text bg-transparent border-0 text-muted ps-2.5 ps-sm-3">
               <i className="bi bi-search"></i>
             </span>
             <input 
               type="text" 
-              className="form-control bg-transparent border-0 shadow-none ps-2" 
+              className="form-control bg-transparent border-0 shadow-none ps-1 ps-sm-2" 
               placeholder="Search your notes..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              style={{ fontSize: '0.9rem' }}
             />
             {searchQuery && (
               <button 
-                className="btn btn-transparent border-0 text-muted pe-3 shadow-none" 
+                className="btn btn-transparent border-0 text-muted pe-2.5 pe-sm-3 shadow-none" 
                 type="button"
                 onClick={() => setSearchQuery('')}
               >
@@ -63,10 +64,10 @@ export default function Header({
         </div>
 
         {/* Right Section: Toolbar & Profile */}
-        <div className="d-flex align-items-center gap-2">
+        <div className="d-flex align-items-center gap-1.5 gap-sm-2 flex-shrink-0">
           {/* Refresh button */}
           <button 
-            className="btn btn-light rounded-circle p-2 d-flex align-items-center justify-content-center border-0 text-secondary"
+            className="btn btn-light rounded-circle p-2 d-none d-sm-flex align-items-center justify-content-center border-0 text-secondary"
             type="button"
             onClick={onRefresh}
             title="Refresh"
@@ -77,7 +78,7 @@ export default function Header({
 
           {/* Grid/List layout toggle */}
           <button 
-            className="btn btn-light rounded-circle p-2 d-flex align-items-center justify-content-center border-0 text-secondary"
+            className="btn btn-light rounded-circle p-2 d-none d-sm-flex align-items-center justify-content-center border-0 text-secondary"
             type="button"
             onClick={() => setIsGridView(!isGridView)}
             title={isGridView ? "List view" : "Grid view"}

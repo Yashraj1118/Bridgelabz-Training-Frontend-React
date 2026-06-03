@@ -1,0 +1,235 @@
+/* Global Variables & Layout Styles */
+body {
+  background-color: #f8f9fa;
+  font-family: 'Outfit', sans-serif !important;
+  color: #202124;
+}
+
+/* Auth Layout */
+.auth-container {
+  background: linear-gradient(135deg, #fef08a 0%, #fef3c7 100%);
+}
+.auth-card {
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+}
+.letter-spacing-5 {
+  letter-spacing: 5px;
+}
+
+/* Top Navbar */
+.navbar {
+  height: 64px;
+  z-index: 1050;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15);
+}
+
+/* Sidebar Drawer */
+.sidebar {
+  width: 280px;
+  background-color: #ffffff;
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-x: hidden;
+}
+
+.sidebar-expanded {
+  width: 280px;
+}
+
+.sidebar-collapsed {
+  width: 76px;
+}
+
+.sidebar-text {
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+}
+
+.sidebar-collapsed .sidebar-text {
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+}
+
+.nav-link.hover-light:hover {
+  background-color: #f1f3f4 !important;
+}
+
+/* Main Content Wrapper */
+.main-wrapper {
+  margin-top: 64px; /* navbar height */
+  transition: margin-left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: calc(100vh - 64px);
+}
+
+.main-wrapper-expanded {
+  margin-left: 280px;
+}
+
+.main-wrapper-collapsed {
+  margin-left: 76px;
+}
+
+@media (max-width: 768px) {
+  .sidebar-expanded {
+    width: 76px;
+  }
+  .main-wrapper-expanded {
+    margin-left: 76px;
+  }
+  .sidebar-collapsed {
+    width: 0px;
+    border-right: none !important;
+  }
+  .main-wrapper-collapsed {
+    margin-left: 0px;
+  }
+}
+
+/* Note Creator Card */
+.note-creator-card {
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15) !important;
+  border: 1px solid #e0e0e0;
+  transition: all 0.2s ease-in-out;
+}
+
+.note-creator-card:focus-within {
+  box-shadow: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15) !important;
+}
+
+.note-textarea {
+  min-height: 44px;
+}
+
+.cursor-text {
+  cursor: text;
+}
+
+/* Note Cards Grid */
+.note-card {
+  border: 1px solid #dadce0;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.note-card:hover {
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15) !important;
+}
+
+.note-card:hover .pin-btn,
+.note-card:hover .note-card-footer {
+  opacity: 1 !important;
+}
+
+.note-card-footer button {
+  color: #5f6368 !important;
+  text-decoration: none;
+}
+
+.note-card-footer button:hover {
+  background-color: rgba(95, 99, 104, 0.08) !important;
+  color: #202124 !important;
+}
+
+.note-card-content {
+  color: #202124;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 10; /* Max 10 lines in preview */
+  -webkit-box-orient: vertical;
+}
+
+.color-btn {
+  transition: transform 0.15s ease;
+}
+
+.color-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Popover pickers */
+.picker-popover {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 8px;
+}
+
+/* Custom Modal Backdrop */
+.modal-backdrop-custom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(32, 33, 36, 0.6);
+  z-index: 1060;
+  backdrop-filter: blur(4px);
+}
+
+.edit-modal-card {
+  box-shadow: 0 12px 15px 0 rgba(0,0,0,0.25) !important;
+  border: 1px solid #dadce0;
+  z-index: 1070;
+}
+
+.modal-textarea {
+  font-size: 0.95rem;
+}
+
+/* Labels Modal List Item */
+.label-row {
+  transition: background-color 0.15s ease;
+}
+
+.label-row:hover {
+  background-color: #f1f3f4;
+}
+
+.label-row .label-edit-btn,
+.label-row .label-delete-btn {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.label-row:hover .label-edit-btn,
+.label-row:hover .label-delete-btn {
+  opacity: 1;
+}
+
+.labels-list-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.labels-list-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.labels-list-container::-webkit-scrollbar-thumb {
+  background: #dadce0;
+  border-radius: 3px;
+}
+
+/* Transitions helper */
+.transition-all {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-opacity {
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Outlines focus remove */
+input:focus, textarea:focus, select:focus {
+  outline: none !important;
+}
+
+.label-checkbox {
+  transition: background-color 0.15s ease;
+}
+.label-checkbox:hover {
+  background-color: #f1f3f4;
+}
